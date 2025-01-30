@@ -48,8 +48,15 @@ for(i in 1:length(files)){
 }
 song
 
+album=c()
+artist=c()
 
+for(i in 1:length(file.paths)){
+  artist = c(artist, str_split_i(file.paths[i], "/", 2))
+  album = c(artist, str_split_i(file.paths[i], "/", 3))
+}
 
+paste()
 
 
   
