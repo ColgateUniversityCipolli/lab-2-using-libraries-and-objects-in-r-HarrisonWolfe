@@ -67,12 +67,25 @@ output
 #Naming the thingy
 command.thing = "streaming_extractor_music.exe"
 
+
 for(i in 1:length(output)){
-  code.to.process[i] = paste(command.thing, '"', files[i], '\"', output[i], sep=" ")
+  code.to.process[i] = paste(command.thing, " ", '"', files[i], '"', " ", '"', output[i], '"', sep="")
 }
+
+
+
 
   code.to.process
   
+  writeLines(code.to.process)
   
-  #"""
+  test = c()
+  
+  test = paste(
+  
+  
+  
+  
+  
+  
   
