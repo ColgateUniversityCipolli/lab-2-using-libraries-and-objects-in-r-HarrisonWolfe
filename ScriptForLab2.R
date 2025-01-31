@@ -40,7 +40,7 @@ file.paths
 track = c()
 split.tracks=c()
 song=c()
-#Removing .wav
+#Removing .wav/splitting up everything/isolating the song
 for(i in 1:length(files)){
   track[i] = str_sub(files[i], 1, length(files[i])-6)
   split.tracks = c(split.tracks, str_split_1(track[i], "-"))
@@ -50,15 +50,29 @@ song
 
 album=c()
 artist=c()
-
+#Putting the artist in one vector and putting album in another
 for(i in 1:length(file.paths)){
   artist = c(artist, str_split_i(file.paths[i], "/", 2))
-  album = c(artist, str_split_i(file.paths[i], "/", 3))
+  album = c(album, str_split_i(file.paths[i], "/", 3))
 }
 
-paste()
+output = c()
+#Throwing everything together into an outpute file
+for(i in 1:14){
+  output = c(output, paste(artist[i], "-", album[i], "-", song[i], ".json", sep=""))
+}
 
+output
 
+#Naming the thingy
+command.thing = "streaming_extractor_music.exe"
+
+for(i in 1:length(output)){
+  code.to.process[i] = paste(command.thing, '"', files[i], '\"', output[i], sep=" ")
+}
+
+  code.to.process
   
   
+  #"""
   
