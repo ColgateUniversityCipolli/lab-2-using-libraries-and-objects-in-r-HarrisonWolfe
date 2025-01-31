@@ -67,21 +67,16 @@ output
 #Naming the thingy
 command.thing = "streaming_extractor_music.exe"
 
-
+#Makes the vector of the codes
 for(i in 1:length(output)){
   code.to.process[i] = paste(command.thing, " ", '"', files[i], '"', " ", '"', output[i], '"', sep="")
 }
 
-
-
-
-  code.to.process
   
-  writeLines(code.to.process)
+  #Puts the codes in the batfile thingy majig 
+  writeLines(code.to.process, con = "batfile.txt")
   
-  test = c()
-  
-  test = paste(
+
   
   
   
