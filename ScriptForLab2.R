@@ -25,7 +25,7 @@ for(x in subdirectories){
 
 files
 
-str.count(files, pattern = "wav")
+str_count(files, pattern = "wav")
 
 code.to.process = c() #Empty Vecotr 
 file.paths = c()
@@ -76,11 +76,38 @@ for(i in 1:length(output)){
   #Puts the codes in the batfile thingy majig 
   writeLines(code.to.process, con = "batfile.txt")
   
-
+########
+  #Task 2
+########
+  
+ 
+  install.packages("jsonlite")
+  library(jsonlite)
+ 
+  
+  Cool.Song = list.files("Song")
+  split.song.name.pre = str_split_i(Cool.Song, "-", 3)
+  
+  name.of.new.song = str_sub(split.song.name.pre, start = 1, end = 17)
+  name.of.new.song
+  
+  album.of.new.song = str_split_i(Cool.Song, "-", 2)
+  album.of.new.song
+  
+  artist.of.new.song = str_split_i(Cool.Song, "-", 1)
+  artist.of.new.song
   
   
+  data.of.new.song = fromJSON(Cool.Song)
+  
+  entries.to.get = c("average_loudness", "spectral_energy", "danceability", "bpm", "key_key", "key_scale", "length")
   
   
-  
-  
-  
+ 
+  data.of.new.song[["lowlevel"]][["average_loudness"]]
+  data.of.new.song[["lowlevel"]][["spectral_energy"]][["mean"]]
+  data.of.new.song[["rhythm"]][["danceability"]]
+  data.of.new.song[["rhythm"]][["bpm"]]
+  data.of.new.song[["tonal"]][["key_key"]]
+  data.of.new.song[["tonal"]][["key_scale"]]
+  data.of.new.song[["metadata"]][["audio_properties"]][["length"]]
