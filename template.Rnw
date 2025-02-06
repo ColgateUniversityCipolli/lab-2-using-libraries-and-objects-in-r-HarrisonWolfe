@@ -24,13 +24,13 @@
 \begin{document}
 
 \vspace{-1in}
-\title{Lab XX -- MATH 240 -- Computational Statistics}
+\title{Lab 02 -- MATH 240 -- Computational Statistics}
 
 \author{
-  First Author \\
-  Affiliation  \\
-  Department  \\
-  {\tt email@domain}
+  Harrison Wolfe \\
+  Colgate University  \\
+  Math  \\
+  {\tt hwolfe@colgate.edu}
 }
 
 \date{}
@@ -39,38 +39,30 @@
 
 \begin{multicols}{2}
 \begin{abstract}
-This document provides a basic template for the 2-page labs we will complete each week. Here, briefly summarize what you did and why it might be helpful. Provide all the top-line conclusions, but avoid providing \emph{all} the details. Results should be limited to ``we show X, Y, and Z."
+
+This goal of this lab was to create a batch file containing a large number of codes to run to turn .wav files into .json files. Another goal of this lab was to start using large sets of data to analyze json files. 
 \end{abstract}
 
-\noindent \textbf{Keywords:} What topics does the lab cover concerning class? List 3-4 key terms here, separated by semicolons.
+\noindent \textbf{Keywords:} Loops; Batch files; Organzing data; Subsetting
 
 \section{Introduction}
-Provide an overarching summary of what you're talking about. In this section, you introduce the idea to the reader, and your goal is to pull them in. What's the mystery you aim to solve?
 
-You want to provide enough background to understand the context of the work. Specifically, what is the question you are addressing? If it applies, describe what information currently exists about this problem, including citations, and explain how the question you're answering complements this work.
+This paper is inteneded ot describe the process in which we can extract data from music and use that data to analyze trends. There are several important components to music like Key Signature, Time Signature, Mode, Tempo, Loudness \verb|(Dynamics)| and many more. Music can be comprised of vectors of information which is what the \texttt{jsonlite} package provdies to us. \citep{jsonlite} 
+\subsection{Tasks}
+In this lab we are dealing with 14 "songs" which are wav files recorded from various things laying around an office or something that a person could make. We want to use these songs to analyze musical trends about them and in doing so we need to convert their file type from a .wav to a .json. To do this we need a batch file to repeat this process several times without having to manually input each one. The other task as a part of this lab is to gather data about a song, "Au Revior", which is already a json file. 
 
-Provide a roadmap of the structure of the paper. 
-
-\subsection{Intro Subsection}
-You might need/want to discuss the topics in subsections. Or, you may have multiple questions.
 
 
 \section{Methods}
-Describe the data you are working with, if applicable. Describe the specific process you will follow to answer the question at hand. This does not mean you should write something like this.
-\begin{quote}
-\textit{I did this and then I did that and then I did this other thing and then..., and then..., and then...}
-\end{quote}
-Instead, it should provide a clear and concise narrative that flows from the problem specification in the Introduction to how you will approach answering it. This is where I would expect to see some citations for \texttt{R} packages you will use to conduct the statistical analysis reported in the Results section.
 
 
-\subsection{Methods Subsection}
-Much like the Introduction, subsections can be helpful for the Methods section. For example, you might describe data collection and the statistical analyses of the collected data in different subsections. Or, you may have different questions that require distinct methods. 
+\subsection{Task 1 Methods}
+In this task there were many steps required to organize the batch file. First it was important that we pulled the data from the folder of music using the \texttt{load.files} command and then using the stringr package we were able to set it up in a way to be processed. \citep{stringr} With this package we were able to create both the input and output file command within the batch file. We first had to list the exact file by using the \texttt{list.files} function for the input and setting that as a vector. Then, for the output as we wanted in the format of album-artist-song.json we needed to separate the name using the \texttt{stringr} package saving the artist, album, and song separately. Then again using the \texttt{paste} tool we could add that all together making one command in the batch file. Using for loops for each of these processes we could replicate this for all 14 songs to make a complete batch file. 
+\subsection{Task 2 Methods}
+In this task we used the \texttt{jsonlite} package to give us various information about a given song. By installing the package and using the \texttt{fromJSON} command we were able to see all of this data about the json file. It gave us information like the Key, Tempo, and many others. After saving this information to an object we could use the subsetting tool to figure out this various information using help from the guide to find the exact path of the attributes needed from the song. 
 
 \section{Results}
-Tie together the Introduction -- where you introduce the problem at hand -- and the methods --  what you propose to do to answer the question. Present your data, the results of your analyses, and how each reported aspect contributes to answering the question. This section should include table(s), statistic(s), and graphical displays. Make sure to put the results in a sensible order and that each result contributes a logical and developed solution. It should not just be a list. Avoid being repetitive. 
-
-\subsection{Results Subsection}
-Subsections can be helpful for the Results section, too. This can be particularly helpful if you have different questions to answer. 
+While there were not many results from this lab we had two products from each task. The first product was a complete batch file which will later allow us to conver the .wav files into .json files. Doing this will allow us to use the \texttt{jsonlite} package to extract the information that we want from the songs. This information will give a statisical background for the style of a given artist and also numerically define differences between music. The other product from this lab was a list of information about the song Au Revoir from the album Talon Of The Hawk by The Front Bottoms. 
 
 
 \section{Discussion}
