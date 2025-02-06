@@ -16,6 +16,7 @@ subdirectories = direct[subdirectnums] #Saving new vector of sub
 files = c()
 song.name = c()
 
+#Loop to make indivudal files
 for(x in subdirectories){
   song.name = list.files(x)
   for(i in 1:length(song.name)){
@@ -88,6 +89,8 @@ for(i in 1:length(output)){
   Cool.Song = list.files("Song")
   split.song.name.pre = str_split_i(Cool.Song, "-", 3)
   
+  
+  #Splitting everything
   name.of.new.song = str_sub(split.song.name.pre, start = 1, end = 17)
   name.of.new.song
   
@@ -97,13 +100,10 @@ for(i in 1:length(output)){
   artist.of.new.song = str_split_i(Cool.Song, "-", 1)
   artist.of.new.song
   
-  
+  #Saving dataframe
   data.of.new.song = fromJSON(Cool.Song)
   
-  entries.to.get = c("average_loudness", "spectral_energy", "danceability", "bpm", "key_key", "key_scale", "length")
-  
-  
- 
+ #Getting more info
   data.of.new.song[["lowlevel"]][["average_loudness"]]
   data.of.new.song[["lowlevel"]][["spectral_energy"]][["mean"]]
   data.of.new.song[["rhythm"]][["danceability"]]
