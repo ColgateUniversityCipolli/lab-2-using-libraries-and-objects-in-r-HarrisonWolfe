@@ -111,3 +111,7 @@ for(i in 1:length(output)){
   data.of.new.song[["tonal"]][["key_key"]]
   data.of.new.song[["tonal"]][["key_scale"]]
   data.of.new.song[["metadata"]][["audio_properties"]][["length"]]
+  
+ 
+ 
+  

@@ -49,7 +49,7 @@ This goal of this lab was to create a batch file containing a large number of co
 
 This paper is inteneded ot describe the process in which we can extract data from music and use that data to analyze trends. There are several important components to music like Key Signature, Time Signature, Mode, Tempo, Loudness \verb|(Dynamics)| and many more. Music can be comprised of vectors of information which is what the \texttt{jsonlite} package provdies to us. \citep{jsonlite} 
 \subsection{Tasks}
-In this lab we are dealing with 14 "songs" which are wav files recorded from various things laying around an office or something that a person could make. We want to use these songs to analyze musical trends about them and in doing so we need to convert their file type from a .wav to a .json. To do this we need a batch file to repeat this process several times without having to manually input each one. The other task as a part of this lab is to gather data about a song, "Au Revior", which is already a json file. 
+In this lab we are dealing with 14 "songs" which are wav files recorded from various things laying around an office or something that a person could make. We want to use these songs to analyze musical trends about them and in doing so we need to convert their file type from a .wav to a .json. To do this we need a batch file to repeat this process several times without having to manually input each one. The other task as a part of this lab is to gather data about a song, \textbf{"Au Revior"}, which is already a json file. 
 
 
 
@@ -57,8 +57,10 @@ In this lab we are dealing with 14 "songs" which are wav files recorded from var
 
 
 \subsection{Task 1 Methods}
-In this task there were many steps required to organize the batch file. First it was important that we pulled the data from the folder of music using the \texttt{load.files} command and then using the stringr package we were able to set it up in a way to be processed. \citep{stringr} With this package we were able to create both the input and output file command within the batch file. We first had to list the exact file by using the \texttt{list.files} function for the input and setting that as a vector. Then, for the output as we wanted in the format of album-artist-song.json we needed to separate the name using the \texttt{stringr} package saving the artist, album, and song separately. Then again using the \texttt{paste} tool we could add that all together making one command in the batch file. Using for loops for each of these processes we could replicate this for all 14 songs to make a complete batch file. 
+
+In this task there were many steps required to organize the batch file. First it was important that we pulled the directories from the folder of music using the \texttt{list.dirs} command and then using the \texttt{list.files} we could list the files from each directory. Then, using the stringr package we were able to set it up in a way to be processed. \citep{stringr} With this package we were able to create both the input and output file command within the batch file. We first had to list the exact file by using the \texttt{list.files} function for the input and setting that as a vector with an ending of .wav to signify that this is what we want to turn into a json file. Then, for the output as we wanted in the format of album-artist-song.json we needed to separate the name using the \texttt{stringr} package saving the artist, album, and song separately with .json at the end to show the output should be a json file. Then again using the \texttt{paste} tool we could add that all together making one command in the batch file. Using for loops for each of these processes we could replicate this for all 14 songs to make a complete batch file. 
 \subsection{Task 2 Methods}
+
 In this task we used the \texttt{jsonlite} package to give us various information about a given song. By installing the package and using the \texttt{fromJSON} command we were able to see all of this data about the json file. It gave us information like the Key, Tempo, and many others. After saving this information to an object we could use the subsetting tool to figure out this various information using help from the guide to find the exact path of the attributes needed from the song. 
 
 \section{Results}
@@ -66,17 +68,14 @@ While there were not many results from this lab we had two products from each ta
 
 
 \section{Discussion}
- You should objectively evaluate the evidence you found in the data. Do not embellish or wish-terpet (my made-up phase for making an interpretation you, or the researcher, wants to be true without the data \emph{actually} supporting it). Connect your findings to the existing information you provided in the Introduction.
 
-Finally, provide some concluding remarks that tie together the entire paper. Think of the last part of the results as abstract-like. Tell the reader what they just consumed -- what's the takeaway message?
+There is very little subjectivity form this lab as it was a methodical assignment that explored two tasks which could either be done correctly or incorrectly. As there was no real product it is hard to evaluate something and present conclusions from data whne we are just producing something rather than analyzing. While there was the list of data givne form the song \textbf{Au Revoir}, there were no hypothesis testing, confidence intervals, or any other infromative processes to draw from the data. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{2em}
 
-\noindent\textbf{Bibliography:} Note that when you add citations to your bib.bib file \emph{and}
-you cite them in your document, the bibliography section will automatically populate here.
 
 \begin{tiny}
 \bibliography{bib}
@@ -88,8 +87,6 @@ you cite them in your document, the bibliography section will automatically popu
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \onecolumn
-\section{Appendix}
 
-If you have anything extra, you can add it here in the appendix. This can include images or tables that don't work well in the two-page setup, code snippets you might want to share, etc.
 
 \end{document}
